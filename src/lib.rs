@@ -1,11 +1,9 @@
 use std::env;
+
 #[cfg(target_env = "sgx")]
-use sgx_tstd::untrusted::path::PathEx as Path;
+use std::untrusted::path::PathEx;
 
-#[cfg(not(target_env = "sgx"))]
-use std::path::Path;
-
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 /// The OpenSSL environment variable to configure what certificate file to use.
 pub const ENV_CERT_FILE: &'static str = "SSL_CERT_FILE";
